@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyLibrary</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">	
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="geral">
+  <header>
+		<nav class="navbar navbar-default navbar-expand-md justify-content-center">
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#bot">
+				<span class="material-icons">menu</span>
+			</button>
+      <a href="index.html" class="navbar-brand">
+        <img id="logo" src="imagens/icone.png" alt="MyLibrary"> MyLibrary
+      </a>
+      <div class="navbar-collapse collapse justify-content-end" id="bot">
+        <ul class="navbar-nav mx-auto text-center" id="cores1">
+          <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item active"><a class="nav-link" href="biblioteca.html">Minha Biblioteca</a></li>
+          <li class="nav-item active"><a class="nav-link" href="cadlivro.html">Cadastrar Livro</a></li>
+          <li class="nav-item active"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item active"><a class="nav-link" href="cadastro.html">Cadastro</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="input-group" id="pesquisa">
+        <input type="search" class="form-control rounded" placeholder="Digite nome, autor ou ISBN" aria-label="Search"
+          aria-describedby="search-addon" />
+          <div class="from-group">
+            <button type="submit" class="btn btn-warning">Pesquisar</button>
+          </div>
+    </div>
+  </header>
+  <div class="container" id="cores1">
+    <div class="row">
+      <div class="col-12">
+        <h1>MINHA BIBLIOTECA</h1>
+        <h2>LENDO</h2>
+            <div class="card" style="width:300px">
+                <a id="nomelivro" href="#"><img class="card-img-top" src="imagens/capas/MulheresRacaEClasse.jpg" alt="Mulheres Raça E Classe" id="capalivro" class="img-fluid">
+                <div class="card-body">
+                  <h4 class="card-title">Mulheres, Raça E Classe</h4>
+                  <p class="card-text">Angela Davis</p></a>
+                </div>
+            </div><br><br>
+        <h2>QUERO LER</h2>
+            <div class="card" style="width:300px">
+                <a id="nomelivro" href="#"><img class="card-img-top" src="imagens/capas/BatmanAPiadaMortal.jpg" alt="Batman - A Piada Mortal" id="capalivro" class="img-fluid">
+                <div class="card-body">
+                  <h4 class="card-title">Batman - A Piada Mortal</h4>
+                  <p class="card-text">Alan Moore</p></a>
+                </div>
+            </div><br><br>
+        <h2>LIDO</h2>
+            <div class="card" style="width:300px">
+                <a id="nomelivro" href="#"><img class="card-img-top" src="imagens/capas/OutroPatamar.jpg" alt="Outro Patamar - Análises sobre o Flamengo de 2019 e as lições para o futebol brasileiro" id="capalivro" class="img-fluid">
+                <div class="card-body">
+                  <h4 class="card-title">Outro Patamar - Análises sobre o Flamengo de 2019 e as lições para o futebol brasileiro</h4>
+                  <p class="card-text">Téo Benjamin</p></a>
+                </div>
+            </div><br><br>
+        <h2>PAREI DE LER</h2>
+            <div class="card" style="width:300px">
+                <a id="nomelivro" href="#"><img class="card-img-top" src="imagens/capas/BrasCubas.jpg" alt="Memórias Póstumas de Brás Cubas" id="capalivro" class="img-fluid">
+                <div class="card-body">
+                  <h4 class="card-title">Memórias Póstumas de Brás Cubas</h4>
+                  <p class="card-text">Machado de Assis</p></a>
+                </div>
+            </div><br><br>
+      </div>
+    </div>
+  </div>
+  <footer class="page-footer font-small teal pt-4">
+    <div class="row">
+      <div class="col-md-6 mt-md-0 mt-3">
+        <h5 class="text-uppercase font-weight-bold">Instituto Federal Catarinense</h5>
+        <p>Marcos Vinicios Borgert, Matheus Bastos Gabriel e Matheus Kauan Sutil Stopassola</p>
+      </div>  
+    <div class="footer-copyright">
+      <p>© 2021 Copyright</p>
+    </div>
+    </div>
+  </footer>
+  </div>
+</body>
+</html>

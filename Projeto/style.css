@@ -1,0 +1,104 @@
+body{
+    font-family: "Lobster";
+    background-image: url("imagens/fundo1.png");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: cover;
+}
+html, body {
+    height:100%;
+}
+.container{
+    padding: 70px 0;
+}
+header, .navbar{
+    background-color:white !important;
+    position: static;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+.geral {
+    min-height:100%;
+    position:relative;
+}
+.nav-link:hover{
+    color: orangered;
+	background-color: white;
+	border-bottom-style: solid;
+	border-bottom-color: orangered;
+	border-width: 5px;
+}
+.navbar-toggler{
+	color: orangered !important;
+}
+#nav-container{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#logo {
+    width: 75px;
+}
+.navbar-brand{
+    font-family: "Lobster";
+    padding: 0;
+    color: orangered;
+}
+.navbar-brand:hover{
+    color: orangered;
+}
+.nav-link {
+    color: orangered;
+}
+#pesquisa{
+    top: 1%;
+    width:20%;
+    right:0;
+    text-align: right;
+    position: absolute;
+    background-color: white;
+}
+#cores{
+    font-family: "roboto";
+    width: 70%;
+}
+#cores1{
+    font-family: "roboto";
+    width: 40%;
+    color: orangered; 
+}
+#cadast{
+    color: orangered;
+}
+#cadast:hover{
+    color: black;
+    border-bottom-color: orangered;
+	border-width: 2px;
+}
+#nomelivro{
+    color: orangered;
+    display: inline;
+}
+#capalivro{
+    height:250px;
+    width:174px;
+}
+footer{
+    border-width: 4px;
+    color: white;
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+.page-footer{
+	border-style: solid;
+	border-color: orangered;
+	background-color: orangered !important;
+}
+.footer-copyright{
+    position: absolute;
+    text-align: right;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
