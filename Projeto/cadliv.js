@@ -3,15 +3,14 @@ $(function () { // quando o documento estiver pronto/carregado
     $(document).on("click", "#btIncluirLivros", function () {
         //pegar dados da tela
         ISBM = $("#campoISBM").val();
-        Capa_do_livro = $("#campoCapa do Livros").val();
+        Capa_do_livro = $("#campoCapa_do_Livro").val();
         Nome_do_livro = $("#campoNome_do_livro").val();
         Autor = $("#campoAutor").val();
         Paginas = $("#campoPaginas").val();
         Editora = $("#campoEditora").val();
         // preparar dados no formato json
         var dados = JSON.stringify({ ISBM: ISBM, Capa_do_livro: Capa_do_livro, Nome_do_livro: Nome_do_livro, Autor:Autor, Editora:Editora });
-        alert(dados)
-        alert("aleluia")
+        alert(dados);
         // fazer requisição para o back-end
         $.ajax({
             url: 'http://localhost:5000/incluir_livro',

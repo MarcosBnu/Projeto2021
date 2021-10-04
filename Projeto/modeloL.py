@@ -28,7 +28,7 @@ class Biblioteca(db.Model):
             "Nome_do_livro" : self.Nome_do_livro,
             "Autor" : self.Autor,
             "Paginas": self.Paginas,
-            "Editora": self.Editora
+            "Editora": self.Editoras
             #retorna em join as informaçoes
         }   
 class Editora(db.Model):#classe para informar a editora de determinado livro
