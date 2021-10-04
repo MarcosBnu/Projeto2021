@@ -9,10 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">	
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">	
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
   <div class="geral">
@@ -22,7 +25,7 @@
 				<span class="material-icons">menu</span>
 			</button>
       <a href="index.html" class="navbar-brand">
-        <img id="logo" src="imagens/icone.png" alt="MyLibrary"> MyLibrary 
+        <img id="logo" src="Imagens/icone.png" alt="MyLibrary"> MyLibrary 
       </a>
       <div class="navbar-collapse collapse justify-content-end" id="bot">
         <ul class="navbar-nav mx-auto text-center" id="cores1">
@@ -35,54 +38,56 @@
       </div>
     </nav>
   </header>
-  <div class="container" id="cores10">
-    <div class="row">
+  <div class="container-fluid" id="imagensformulario">
+    <div class="row" id="coluna">
       <div class="col-12">
-        <h1>CADASTRE UM NOVO LIVRO</h1>
+        <br>
+        <h1 style="text-align: center;">CADASTRE UM NOVO LIVRO</h1><br>
         <form>
           <div class="form-group">
             <label>ISBN</label>
-            <input class="form-control" type="number" name="isbn" id="isbn" placeholder="Digite o ISBN do livro" >
+            <input class="form-control" type="number" name="isbn" id="ISBM" placeholder="Digite o ISBN do livro" >
           </div>
           <div class="form-group">
             <label>Capa do Livro</label>
-            <input class="form-control" type="file" name="capa" id="capa">
+            <input class="form-control" type="file" name="capa" id="Capa_do_livro">
           </div>
           <div class="form-group">
             <label>Nome do Livro</label>
-            <input class="form-control" type="text" name="nomelivro" id="nomelivro" placeholder="Digite o nome do livro" >
+            <input class="form-control" type="text" name="nomelivro" id="Nome_do_livro" placeholder="Digite o nome do livro" >
           </div>
           <div class="form-group">
             <label>Autor</label>
-            <input class="form-control" type="text" name="autor" id="autor" placeholder="Digite o nome do autor" >
+            <input class="form-control" type="text" name="autor" id="Autor" placeholder="Digite o nome do autor" >
           </div>
           <div class="form-group">
             <label>Páginas</label>
-            <input class="form-control" type="number" name="paginas" id="paginas" placeholder="Digite a quantidade de páginas" >
+            <input class="form-control" type="number" name="paginas" id="Paginas" placeholder="Digite a quantidade de páginas" >
           </div>
           <div class="form-group">
             <label>Editora</label>
-            <input class="form-control" type="text" name="editora" id="editora" placeholder="Digite o nome da editora" >
+            <input class="form-control" type="text" name="editora" id="Editora" placeholder="Digite o nome da editora" >
           </div>
           <div class="from-group">
-            <button type="submit" class="btn btn-warning">Cadastre</button>
-            <br><br><br><br>
+            <button id="btIncluirLivros" class="btn btn-warning">Cadastre</button>
+            <br><br><br><br><br>
           </div>
-        </form>
+       </form>
       </div>
     </div>
   </div>
-  <footer class="page-footer font-small teal pt-4">
-    <div class="row">
-      <div class="col-md-6 mt-md-0 mt-3">
-        <h5 class="text-uppercase font-weight-bold">Instituto Federal Catarinense</h5>
-        <p>Marcos Vinicios Borgert, Matheus Bastos Gabriel e Matheus Kauan Sutil Stopassola</p>
-      </div>  
-    <div class="footer-copyright">
-      <p>© 2021 Copyright</p>
-    </div>
-    </div>
-  </footer>
-  </div>
+  <br><br><br>
+    <footer class="page-footer font-small teal pt-4">
+      <div class="row">
+        <div class="col-md-6 mt-md-0 mt-3">
+          <h5 class="text-uppercase font-weight-bold">Instituto Federal Catarinense</h5>
+          <p>Marcos Vinicios Borgert, Matheus Bastos Gabriel e Matheus Kauan Sutil Stopassola</p>
+        </div>  
+      <div class="footer-copyright">
+        <p>© 2021 Copyright</p>
+      </div>
+      </div>
+    </footer>
+<script src="cadliv.js"></script>
 </body>
 </html>
