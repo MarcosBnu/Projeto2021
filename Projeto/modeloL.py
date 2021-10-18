@@ -1,7 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
+from flask_cors import CORS
 import os
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///livros.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 caminho = os.path.dirname(os.path.abspath(__file__)) 
@@ -16,9 +18,9 @@ class Biblioteca(db.Model):
     Nome_do_livro= db.Column(db.String)
     Autor= db.Column(db.String)
     Paginas =db.Column(db.Integer)
-    Editoras=db.Column(db.String)
+    Editora=db.Column(db.String)
     def __str__(self):
-        return f'{str(self.Idlivro)}, {str(self.ISBM)}, {self.Capa_do_livro}, {self.Nome_do_livro}, {self.Autor}, {str(self.Paginas)}, {self.Editoras}'
+        return f'{str(self.Idlivro)}, {str(self.ISBM)}, {self.Capa_do_livro}, {self.Nome_do_livro}, {self.Autor}, {str(self.Paginas)}, {self.Editora}'
     
     def json(self):
         return{
@@ -28,9 +30,30 @@ class Biblioteca(db.Model):
             "Nome_do_livro" : self.Nome_do_livro,
             "Autor" : self.Autor,
             "Paginas": self.Paginas,
-            "Editora": self.Editoras
+            "Editora": self.Editora
             #retorna em join as informaçoes
-        }   
+        }
+class Cadastro(db.Model):
+    Idcad = db.Column(db.Integer, primary_key=True)
+    Nome= db.Column(db.String)
+    Idade=db.Column(db.String)
+    Email= db.Column(db.String)
+    Senha= db.Column(db.String)
+    Repetir_senha =db.Column(db.String)
+    def __str__(self):
+        return f'{str(self.Idcad)}, {str(self.Nome)}, {self.Idade}, {self.Email}, {self.Senha}, {str(self.Repetir_senha)}'
+    
+    def json(self):
+        return{
+            "Idcad" : self.Idcad,
+            "Nome": self.Nome,
+            "Idade": self.Idade,
+            "Email" : self.Email,
+            "Senha" : self.Senha,
+            "Repetir_senha": self.Repetir_senha,
+            #retorna em join as informaçoes
+        }
+
 class Editora(db.Model):#classe para informar a editora de determinado livro
     id_editora=db.Column(db.Integer, primary_key=True)#cria a chave primaria
     NomeEditora=db.Column(db.String)
@@ -188,3 +211,8 @@ if __name__=="__main__":#testa as classes
         print(i.json())#printa em json a tebela livros
 
     
+    python = Biblioteca(ISBM="123", Capa_do_livro="", Nome_do_livro="Python turbinado", Autor="Jack John", Paginas=400, Editora = "Atenas")
+    db.session.add(python)
+    db.session.commit()
+    print(python)
+    print(python.json())

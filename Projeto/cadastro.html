@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">	
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -43,29 +43,29 @@
       <div class="row" id="colunacad">
         <div class="col-12">
           <h1 id="mybli">CADASTRO</h1>
-          <form>
+          <form onsubmit="return false;">
             <div class="form-group">
               <label>Nome</label>
-              <input class="form-control" type="text" name="nome" id="nome" placeholder="Digite o seu nome" required>
+              <input class="form-control" type="text" name="nome" id="campoNome" placeholder="Digite o seu nome" required>
             </div>
             <div class="form-group">
               <label>Idade</label>
-              <input class="form-control" type="date" name="data" id="data" required>
+              <input class="form-control" type="date" name="data" id="campoIdade" required>
             </div>
             <div class="form-group">
               <label>Email</label>
-              <input class="form-control" type="email" name="email" id="email" placeholder="Digite o seu email" required>
+              <input class="form-control" type="email" name="email" id="campoEmail" placeholder="Digite o seu email" required>
             </div>
             <div class="form-group">
               <label>Senha</label>
-              <input class="form-control" type="password" name="senha" id="senha" placeholder="Digite a sua senha" required>
+              <input class="form-control" type="password" name="senha" id="campoSenha" placeholder="Digite a sua senha" required>
             </div>
             <div class="form-group">
               <label>Repetir Senha</label>
-              <input class="form-control" type="password" name="senha" id="senha1" placeholder="Repita a sua senha" required>
+              <input class="form-control" type="password" name="senha" id="campoRepetir_senha" placeholder="Repita a sua senha" required>
             </div>
             <div class="from-group">
-              <button type="submit" class="btn btn-warning">Cadastrar</button>
+              <button id="btCadastrar" class="btn btn-warning">Cadastrar</button>
               <br><br><br><br><br><br><br>
             </div>
           </form>
@@ -89,5 +89,6 @@
     </div>
   </footer>
   </div>
+<script src="cadliv.js"></script>
 </body>
 </html>

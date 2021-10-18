@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">	
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -43,7 +43,7 @@
       <div class="col-12">
         <br>
         <h1 style="text-align: center;">CADASTRE UM NOVO LIVRO</h1><br>
-        <form>
+        <form onsubmit="return false;">
           <div class="form-group">
             <label>ISBN</label>
             <input class="form-control" type="number" name="isbn" id="campoISBM" placeholder="Digite o ISBN do livro" >
