@@ -2,14 +2,15 @@ $(function () { // quando o documento estiver pronto/carregado
     // código para mapear click do botão incluir pessoa
     $(document).on("click", "#btIncluirLivros", function () {
         //pegar dados da tela
-        ISBM = $("#campoISBM").val();
+        ISBN = $("#campoISBN").val();
         Capa_do_livro = $("#campoCapa_do_Livro").val();
         Nome_do_livro = $("#campoNome_do_livro").val();
         Autor = $("#campoAutor").val();
         Paginas = $("#campoPaginas").val();
         Editora = $("#campoEditora").val();
+        Status = $("#campoStatus").val();
         // preparar dados no formato json
-        var dados = JSON.stringify({ ISBM: ISBM, Capa_do_livro: Capa_do_livro, Nome_do_livro: Nome_do_livro, Autor:Autor, Editora:Editora });
+        var dados = JSON.stringify({ ISBN: ISBN, Capa_do_livro: Capa_do_livro, Nome_do_livro: Nome_do_livro, Autor:Autor, Editora:Editora, Status:Status });
         // fazer requisição para o back-end
         $.ajax({
             url: 'http://localhost:5000/incluir_livro',
@@ -25,12 +26,13 @@ $(function () { // quando o documento estiver pronto/carregado
                 // informar resultado de sucesso
                 alert("livro cadastrado com sucesso!");
                 // limpar os campos
-                $("#campoISBM").val();
+                $("#campoISBN").val();
                 $("#campoCapa do Livros").val();
                 $("#campoNome_do_livro").val();
                 $("#campoAutor").val();
                 $("#campoPaginas").val();
                 $("#campoEditora").val();
+                $("#campoStatus").val();
             } else {
                 // informar mensagem de erro
                 alert(retorno.resultado + ":" + retorno.detalhes);

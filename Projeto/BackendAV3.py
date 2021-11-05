@@ -15,7 +15,7 @@ def incluir_livro():
     # receber as informações da nova pessoa
     dados = request.get_json()  # (force=True) dispensa Content-Type na requisição
     try:  # tentar executar a operação
-        # Biblioteca(ISBM="123", Capa_do_livro="livro de python", Nome_do_livro="Python turbinado", Autor="Jack John", Paginas=400, Editoras = "várias")
+        # Biblioteca(ISBN="123", Capa_do_livro="livro de python", Nome_do_livro="Python turbinado", Autor="Jack John", Paginas=400, Editoras = "várias")
         nova = Biblioteca(**dados)  # criar a nova pessoa
         db.session.add(nova)  # adicionar no BD
         db.session.commit()  # efetivar a operação de gravação
@@ -33,7 +33,7 @@ def cadastrar_usuario():
     # receber as informações da nova pessoa
     Cadados = request.get_json()  # (force=True) dispensa Content-Type na requisição
     try:  # tentar executar a operação
-        # Biblioteca(ISBM="123", Capa_do_livro="livro de python", Nome_do_livro="Python turbinado", Autor="Jack John", Paginas=400, Editoras = "várias")
+        # Biblioteca(ISBN="123", Capa_do_livro="livro de python", Nome_do_livro="Python turbinado", Autor="Jack John", Paginas=400, Editoras = "várias")
         novaCad = Cadastro(**Cadados)  # criar a nova pessoa
         db.session.add(novaCad)  # adicionar no BD
         db.session.commit()  # efetivar a operação de gravação
@@ -45,7 +45,7 @@ def cadastrar_usuario():
     return resposta_cad  # responder!
 
 
-@app.route("/listar_livros")
+"""@app.route("/listar_livros")
 def listar_livros():
     lixta = []
     todas = db.session.query(livros).all()  # recebe as informaçoes de livros
@@ -73,7 +73,7 @@ def listar_editora():
     for p in todas:
         lixta.append(p.json())
     resposta = jsonify(lixta)  # transforma a lixta em json
-    return resposta
+    return resposta"""
 
 
 app.run() #debug=True)

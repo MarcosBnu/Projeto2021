@@ -46,7 +46,7 @@
         <form onsubmit="return false;">
           <div class="form-group">
             <label>ISBN</label>
-            <input class="form-control" type="number" name="isbn" id="campoISBM" placeholder="Digite o ISBN do livro" >
+            <input class="form-control" type="number" name="isbn" id="campoISBN" placeholder="Digite o ISBN do livro" >
           </div>
           <div class="form-group">
             <label>Capa do Livro</label>
@@ -67,6 +67,16 @@
           <div class="form-group">
             <label>Editora</label>
             <input class="form-control" type="text" name="editora" id="campoEditora" placeholder="Digite o nome da editora" >
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <br>
+            <select class="form-control" name="Status" id="campoStatus">
+              <option value="Lendo">Lendo</option>
+              <option value="Quero Ler">Quero Ler</option>
+              <option value="Lido">Lido</option>
+              <option value="Parei de Ler">Parei de Ler</option>
+            </select>
           </div>
           <div class="from-group">
             <button id="btIncluirLivros" class="btn btn-warning">Cadastre</button>

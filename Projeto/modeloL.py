@@ -13,24 +13,26 @@ db= SQLAlchemy(app)
 
 class Biblioteca(db.Model):
     Idlivro = db.Column(db.Integer, primary_key=True)
-    ISBM= db.Column(db.Integer)
+    ISBN= db.Column(db.Integer)
     Capa_do_livro=db.Column(db.String)
     Nome_do_livro= db.Column(db.String)
     Autor= db.Column(db.String)
     Paginas =db.Column(db.Integer)
     Editora=db.Column(db.String)
+    Status=db.Column(db.String)
     def __str__(self):
-        return f'{str(self.Idlivro)}, {str(self.ISBM)}, {self.Capa_do_livro}, {self.Nome_do_livro}, {self.Autor}, {str(self.Paginas)}, {self.Editora}'
+        return f'{str(self.Idlivro)}, {str(self.ISBN)}, {self.Capa_do_livro}, {self.Nome_do_livro}, {self.Autor}, {str(self.Paginas)}, {self.Editora}, {self.Status}'
     
     def json(self):
         return{
             "Idlivro" : self.Idlivro,
-            "ISBM": self.ISBM,
+            "ISBN": self.ISBN,
             "Capa_do_livro": self.Capa_do_livro,
             "Nome_do_livro" : self.Nome_do_livro,
             "Autor" : self.Autor,
             "Paginas": self.Paginas,
-            "Editora": self.Editora
+            "Editora": self.Editora,
+            "Status": self.Status
             #retorna em join as informaçoes
         }
 class Cadastro(db.Model):
@@ -211,7 +213,7 @@ if __name__=="__main__":#testa as classes
         print(i.json())#printa em json a tebela livros
 
     
-    python = Biblioteca(ISBM="123", Capa_do_livro="", Nome_do_livro="Python turbinado", Autor="Jack John", Paginas=400, Editora = "Atenas")
+    python = Biblioteca(ISBN="123", Capa_do_livro="", Nome_do_livro="Python turbinado", Autor="Jack John", Paginas=400, Editora = "Atenas")
     db.session.add(python)
     db.session.commit()
     print(python)
