@@ -10,7 +10,7 @@ $(function () { // quando o documento estiver pronto/carregado
         Editora = $("#campoEditora").val();
         Status = $("#campoStatus").val();
         // preparar dados no formato json
-        var dados = JSON.stringify({ ISBN: ISBN, Capa_do_livro: Capa_do_livro, Nome_do_livro: Nome_do_livro, Autor:Autor, Editora:Editora, Status:Status });
+        var dados = JSON.stringify({ ISBN: ISBN, Capa_do_livro: Capa_do_livro, Nome_do_livro: Nome_do_livro, Autor:Autor, Paginas:Paginas, Editora:Editora, Status:Status });
         // fazer requisição para o back-end
         $.ajax({
             url: 'http://localhost:5000/incluir_livro',
@@ -105,21 +105,21 @@ $(function () { // quando o documento estiver pronto/carregado
             success: cadastrar_usuario, // chama a função listar para processar o resultado
             error: erroAoIncluir
         });
-        function cadastrar_usuario (retorno_cad) {
-            if (retorno_cad.resultado_cad == "ok") { // a operação deu certo?
+        function cadastrar_usuario (resposta) {
+            if (resposta.resultado == "ok") { // a operação deu certo?
                 // informar resultado de sucesso
-                alert("livro cadastrado com sucesso!");
+                alert("login feito");
                 // limpar os campos
                 $("#campoEmail").val();
                 $("#campoSenha").val();
             } else {
                 // informar mensagem de erro
-                alert(retorno_cad.resultado_cad + ":" + retorno_cad.detalhes);
+                alert("erssro");
             }            
         }
-        function erroAoIncluir (retorno_cad) {
+        function erroAoIncluir (resposta) {
             // informar mensagem de erro
-            alert("ERRO: "+retorno_cad.resultado_cad + ":" + retorno_cad.detalhes);
+            alert("ERRO:"+ resposta.detalhes);
         }
     });
 });

@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">	
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -43,17 +43,17 @@
     <div class="row" id="coluna">
       <div class="col-12">
         <h1 style="text-align: center;">LOGIN</h1><br><br>
-        <form>
+        <form onsubmit="return false;">
           <div class="form-group">
             <label>Email</label>
-            <input class="form-control" type="email" name="email" id="email" placeholder="Digite o seu email" required>
+            <input class="form-control" type="email" name="email" id="campoEmail" value="borgert180@gmail.com"  placeholder="Digite o seu email" required>
           </div>
           <div class="form-group">
             <label>Senha</label>
-            <input class="form-control" type="password" name="senha" id="senha" placeholder="Digite a sua senha" required>
+            <input class="form-control" type="password" name="senha" id="campoSenha" value="bob13" placeholder="Digite a sua senha" required>
           </div>
           <div class="from-group">
-            <button type="submit" class="btn btn-warning">Entrar</button><br><br>
+            <button id="btLogin" class="btn btn-warning">Entrar</button><br><br>
           </div>
         </form>
       </div>
@@ -78,5 +78,6 @@
     </div>
   </footer>
   </div>
+<script src="cadliv.js"></script>
 </body>
 </html>

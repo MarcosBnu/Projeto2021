@@ -22,7 +22,7 @@ class Biblioteca(db.Model):
     Status=db.Column(db.String)
     def __str__(self):
         return f'{str(self.Idlivro)}, {str(self.ISBN)}, {self.Capa_do_livro}, {self.Nome_do_livro}, {self.Autor}, {str(self.Paginas)}, {self.Editora}, {self.Status}'
-    
+    #retorna em string as informaçoes
     def json(self):
         return{
             "Idlivro" : self.Idlivro,
@@ -44,7 +44,7 @@ class Cadastro(db.Model):
     Repetir_senha =db.Column(db.String)
     def __str__(self):
         return f'{str(self.Idcad)}, {str(self.Nome)}, {self.Idade}, {self.Email}, {self.Senha}, {str(self.Repetir_senha)}'
-    
+    #retorna em string as informaçoes
     def json(self):
         return{
             "Idcad" : self.Idcad,
@@ -56,7 +56,7 @@ class Cadastro(db.Model):
             #retorna em join as informaçoes
         }
 
-class Editora(db.Model):#classe para informar a editora de determinado livro
+'''class Editora(db.Model):#classe para informar a editora de determinado livro
     id_editora=db.Column(db.Integer, primary_key=True)#cria a chave primaria
     NomeEditora=db.Column(db.String)
     NacionalidadeEditora=db.Column(db.String)
@@ -188,37 +188,32 @@ class Parei_de_ler(livros):#classe filho que indica que o usuario parou de ler e
             "Pagina em que parou" : self.PaginasFaltam
             #retorna em join as informaçoes
         }
-
-#if __name__=="__main__":#testa as classes
-#    if os.path.exists(arquivobd):
-#        os.remove(arquivobd)#remove o banco de dados se existir
-#        print("pepe")
+'''
+if __name__=="__main__":#testa as classes
+    if os.path.exists(arquivobd):
+        os.remove(arquivobd)#remove o banco de dados se existir
     db.create_all()#cria o banco de dados
-    #u1=Editora(NomeEditora="Mosaico", NacionalidadeEditora="Brasileira", EndereçoEditora="rua fulano de tal")
-    #u2=Autor_livro(NomeAutor="Pinoquio", IdadeAutor='56', PaisOrigem="Inglaterra")
-    #u21=Autor_livro(NomeAutor="JK", IdadeAutor='64', PaisOrigem="Inglaterra")
-    #u3=Estou_Lendo(ImagemCapa="semimagem", Nome="pequeno princepe", Autor=u2, LeituraStatus="lendo", editora=u1, NumeroPaginas="195", PaginasLidas="190", Tempo_de_leitura="40min", PaginasQueFalta="5")
-    #u4=Ja_li(ImagemCapa="semimagem", Nome="pequeno princepe2", Autor=u2, LeituraStatus="ja li", editora=u1, NumeroPaginas="205", PaginasLidas="190", DiasPraTerminar="30", avaliação="bom", AddFavorito="Nao", RecomendarMais="nao")
-    #u5=Parei_de_ler(ImagemCapa="semimagem", Nome="Harry Potter", Autor=u21, LeituraStatus="Parei de ler", editora=u1, NumeroPaginas="1005", PaginasLidas="405", PQparou="Achei chato", PaginasFaltam="405")
-    #ur=u3, u4, u5
-    #db.session.add(u1)
-    #db.session.add(u2)
-    #db.session.add(u21)
-    #db.session.add(u3)
-    #db.session.add(u4)
-    #db.session.add(u5)
-    #db.session.commit()
-    #TodosPessoa = db.session.query(livros).all()#recebe as informaçoes de livros
-    #for i in TodosPessoa:
-    #    print(i.json())#printa em json a tebela livros
-    TodosPessoa = db.session.query(Cadastro).all()
+    """u1=Editora(NomeEditora="Mosaico", NacionalidadeEditora="Brasileira", EndereçoEditora="rua fulano de tal")
+    u2=Autor_livro(NomeAutor="Pinoquio", IdadeAutor='56', PaisOrigem="Inglaterra")
+    u21=Autor_livro(NomeAutor="JK", IdadeAutor='64', PaisOrigem="Inglaterra")
+    u3=Estou_Lendo(ImagemCapa="semimagem", Nome="pequeno princepe", Autor=u2, LeituraStatus="lendo", editora=u1, NumeroPaginas="195", PaginasLidas="190", Tempo_de_leitura="40min", PaginasQueFalta="5")
+    u4=Ja_li(ImagemCapa="semimagem", Nome="pequeno princepe2", Autor=u2, LeituraStatus="ja li", editora=u1, NumeroPaginas="205", PaginasLidas="190", DiasPraTerminar="30", avaliação="bom", AddFavorito="Nao", RecomendarMais="nao")
+    u5=Parei_de_ler(ImagemCapa="semimagem", Nome="Harry Potter", Autor=u21, LeituraStatus="Parei de ler", editora=u1, NumeroPaginas="1005", PaginasLidas="405", PQparou="Achei chato", PaginasFaltam="405")
+    ur=u3, u4, u5
+    db.session.add(u1)
+    db.session.add(u2)
+    db.session.add(u21)
+    db.session.add(u3)
+    db.session.add(u4)
+    db.session.add(u5)
+    db.session.commit()
+    TodosPessoa = db.session.query(livros).all()recebe as informaçoes de livros
     for i in TodosPessoa:
-        print(i.json())
-        print(i.Email)
-    #p=Cadastro.query.filter_by (Nome = 'Marcos')
-    #print(p)
+        print(i.json())printa em json a tebela livros
+    p=Cadastro.query.filter_by (Nome = 'Marcos')
+    print(p)
     python = Biblioteca(ISBN="123", Capa_do_livro="", Nome_do_livro="Python turbinado", Autor="Jack John", Paginas=400, Editora = "Atenas")
     db.session.add(python)
     db.session.commit()
-    #print(python)
-    #print(python.json())
+    print(python)
+    print(python.json())"""

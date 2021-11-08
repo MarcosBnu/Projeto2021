@@ -44,16 +44,22 @@ def cadastrar_usuario():
     # adicionar cabeçalho de liberação de origem
     resposta_cad.headers.add("Access-Control-Allow-Origin", "*")
     return resposta_cad  # responder!
-@app.route("/login_usuario")
-def login_usuario():
+
+@app.route("/login_usuario", methods=["POST"])
+def login_usuario():#função para o usuario logar
+    Cadados = request.get_json()
     Cad = db.session.query(Cadastro)\
-        .filter(Cadastro.Email=='borgert180@gmail.com',Cadastro.Senha=='wear')\
-        .first()
+        .filter(Cadastro.Email==Cadados['Email'], Cadastro.Senha==Cadados['Senha'])\
+        .first() #busca no banco de dados as informaçoes
     if Cad:
-        return jsonify(Cad.json())
+        print("foi")
+        resposta=jsonify({"resultado":"ok", "detalhes":Cad.json()})
+        #se cad não for nulo, ele ira retornar os seus valores convertidos em json
     else:
-        responta=jsonify({"resultado":"erro", "detalhes": "Nao encontrado"})
-        return "não encontrado"
+        # informar mensagem de erro
+        resposta=jsonify({"resultado":"erro", "detalhes": "Nao encontrado"})
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
 
 
 """@app.route("/listar_livros")
