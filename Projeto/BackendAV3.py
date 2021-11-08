@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, json, jsonify, request
+from werkzeug.wrappers import response
 from modeloL import *
 
 
@@ -43,6 +44,16 @@ def cadastrar_usuario():
     # adicionar cabeçalho de liberação de origem
     resposta_cad.headers.add("Access-Control-Allow-Origin", "*")
     return resposta_cad  # responder!
+@app.route("/login_usuario")
+def login_usuario():
+    Cad = db.session.query(Cadastro)\
+        .filter(Cadastro.Email=='borgert180@gmail.com',Cadastro.Senha=='wear')\
+        .first()
+    if Cad:
+        return jsonify(Cad.json())
+    else:
+        responta=jsonify({"resultado":"erro", "detalhes": "Nao encontrado"})
+        return "não encontrado"
 
 
 """@app.route("/listar_livros")
@@ -76,4 +87,4 @@ def listar_editora():
     return resposta"""
 
 
-app.run() #debug=True)
+app.run(debug=True)

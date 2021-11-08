@@ -87,3 +87,39 @@ $(function () { // quando o documento estiver pronto/carregado
         }
     });
 });
+$(function () { // quando o documento estiver pronto/carregado
+    // código para mapear click do botão incluir pessoa
+    $(document).on("click", "#btLogin", function () {
+        //pegar dados da tela
+        Email = $("#campoEmail").val();
+        Senha = $("#campoSenha").val();
+        // preparar dados no formato json
+        var Cadados = JSON.stringify({Email: Email, Senha:Senha});
+        // fazer requisição para o back-end
+        $.ajax({
+            url: 'http://localhost:5000/login_usuario',
+            type: 'POST',
+            dataType: 'json', // os dados são recebidos no formato json
+            contentType: 'application/json', // tipo dos dados enviados
+            data: Cadados, // estes são os dados enviados
+            success: cadastrar_usuario, // chama a função listar para processar o resultado
+            error: erroAoIncluir
+        });
+        function cadastrar_usuario (retorno_cad) {
+            if (retorno_cad.resultado_cad == "ok") { // a operação deu certo?
+                // informar resultado de sucesso
+                alert("livro cadastrado com sucesso!");
+                // limpar os campos
+                $("#campoEmail").val();
+                $("#campoSenha").val();
+            } else {
+                // informar mensagem de erro
+                alert(retorno_cad.resultado_cad + ":" + retorno_cad.detalhes);
+            }            
+        }
+        function erroAoIncluir (retorno_cad) {
+            // informar mensagem de erro
+            alert("ERRO: "+retorno_cad.resultado_cad + ":" + retorno_cad.detalhes);
+        }
+    });
+});

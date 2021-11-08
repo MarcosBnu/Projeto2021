@@ -39,7 +39,7 @@ class Cadastro(db.Model):
     Idcad = db.Column(db.Integer, primary_key=True)
     Nome= db.Column(db.String)
     Idade=db.Column(db.String)
-    Email= db.Column(db.String)
+    Email= db.Column(db.String, unique=True)
     Senha= db.Column(db.String)
     Repetir_senha =db.Column(db.String)
     def __str__(self):
@@ -189,10 +189,10 @@ class Parei_de_ler(livros):#classe filho que indica que o usuario parou de ler e
             #retorna em join as informaçoes
         }
 
-if __name__=="__main__":#testa as classes
-    if os.path.exists(arquivobd):
-        os.remove(arquivobd)#remove o banco de dados se existir
-        print("pepe")
+#if __name__=="__main__":#testa as classes
+#    if os.path.exists(arquivobd):
+#        os.remove(arquivobd)#remove o banco de dados se existir
+#        print("pepe")
     db.create_all()#cria o banco de dados
     #u1=Editora(NomeEditora="Mosaico", NacionalidadeEditora="Brasileira", EndereçoEditora="rua fulano de tal")
     #u2=Autor_livro(NomeAutor="Pinoquio", IdadeAutor='56', PaisOrigem="Inglaterra")
@@ -208,13 +208,17 @@ if __name__=="__main__":#testa as classes
     #db.session.add(u4)
     #db.session.add(u5)
     #db.session.commit()
-    TodosPessoa = db.session.query(livros).all()#recebe as informaçoes de livros
+    #TodosPessoa = db.session.query(livros).all()#recebe as informaçoes de livros
+    #for i in TodosPessoa:
+    #    print(i.json())#printa em json a tebela livros
+    TodosPessoa = db.session.query(Cadastro).all()
     for i in TodosPessoa:
-        print(i.json())#printa em json a tebela livros
-
-    
+        print(i.json())
+        print(i.Email)
+    #p=Cadastro.query.filter_by (Nome = 'Marcos')
+    #print(p)
     python = Biblioteca(ISBN="123", Capa_do_livro="", Nome_do_livro="Python turbinado", Autor="Jack John", Paginas=400, Editora = "Atenas")
     db.session.add(python)
     db.session.commit()
-    print(python)
-    print(python.json())
+    #print(python)
+    #print(python.json())
