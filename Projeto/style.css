@@ -138,15 +138,10 @@ header, .navbar{
 }
 .cores10card{
     font-family: "Bebas Neue";
-    margin-left: 40%;
+    margin-left: 43%;
     color:white;
     background-color: teal;
-}
-.cores10card1{
-    font-family: "Bebas Neue";
-    margin-left: 40%;
-    color:teal;
-    background-color: teal;
+    width:180px;
 }
 #cards{
     font-family: "Bebas Neue";
@@ -213,4 +208,6 @@ footer{
 label{
     font-size: 25px;
 }
+
+
 
