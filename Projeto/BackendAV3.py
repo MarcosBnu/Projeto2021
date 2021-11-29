@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, json, jsonify, request
 from werkzeug.wrappers import response
 from modeloL import *
+import os
 
 
 @app.route("/")
@@ -72,6 +73,12 @@ def listar_livros():
     # PERMITIR resposta para outras pedidos oriundos de outras tecnologias
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta # retornar...
+
+@app.route("/salvar_imagem", methods=['POST'])
+def salvar_imagem():
+    up=request.get_json()
+    
+
 
 """@app.route("/listar_livros")
 def listar_livros():

@@ -21,6 +21,15 @@ $(function () { // quando o documento estiver pronto/carregado
             success: incluir_livro, // chama a função listar para processar o resultado
             error: erroAoIncluir
         });
+        $.ajax({
+            url: 'http://localhost:5000/salvar_imagem',
+            type: 'POST',
+            dataType: 'json', // os dados são recebidos no formato json
+            contentType: 'application/json', // tipo dos dados enviados
+            data: dados, // estes são os dados enviados
+            success: salvar_imagem, // chama a função listar para processar o resultado
+            error: erroAoIncluir
+        });
         function incluir_livro (retorno) {
             if (retorno.resultado == "ok") { // a operação deu certo?
                 // informar resultado de sucesso
