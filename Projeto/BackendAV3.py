@@ -61,6 +61,17 @@ def login_usuario():#função para o usuario logar
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
+@app.route("/listar_livros")
+def listar_livros():
+    # obter as livros do cadastro
+    livros = db.session.query(Biblioteca).all()
+    # aplicar o método json que a classe livros possui a cada elemento da lista
+    livros_em_json = [ x.json() for x in livros ]
+    # converter a lista do python para json
+    resposta = jsonify(livros_em_json)
+    # PERMITIR resposta para outras pedidos oriundos de outras tecnologias
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta # retornar...
 
 """@app.route("/listar_livros")
 def listar_livros():
