@@ -3,10 +3,11 @@
 
 <head>
   <title>MyLibrary</title>
+  <title>MyLibrary</title>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link href="style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">	
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -14,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">	
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
@@ -78,7 +79,21 @@
       <h2 class="container-fluid" id="cards">PAREI DE LER</h2><br><br>
       <div id="livros_parei_de_ler">
       </div>
-      <div></div>
+      <br>
+      <h2 class="container-fluid" id="cards">APAGAR LIVRO</h2><br><br>
+      <div class="row" id="coluna">
+        <div class="col-12">
+          <form onsubmit="return false;">
+            <div class="form-group">
+              <label>Nome do Livro</label>
+              <input class="form-control" type="number" name="nomelivro" id="delNomeLivro" placeholder="Digite o nome do livro" >
+            </div>
+            <div class="from-group">
+              <button id="btDeletarLivro" class="btn btn-warning">Apagar</button>
+              <br><br><br><br><br>
+            </div>
+        </form>
+        </div>
     </div><br><br><br><br><br><br>
     <footer class="page-footer font-small teal pt-4">
       <div class="row">

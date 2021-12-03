@@ -1,6 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, json, jsonify, request
 from werkzeug.wrappers import response
+from flask_cors import CORS
 from modeloL import *
 import os
 
@@ -77,13 +78,30 @@ def listar_livros():
 @app.route("/salvar_imagem", methods=['POST'])
 def salvar_imagem():
     up=request.get_json()
-    
+
+
+@app.route("/deletar_livro/<int:delNomeLivro>", methods=['DELETE'])
+def deletar_livro(delNomeLivro):
+    #busca no banco de dados as informaçoes
+    resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
+    try:
+        # excluir a pessoa do ID informado
+        Biblioteca.query.filter(Biblioteca.Idlivro == delNomeLivro).delete()
+        # confirmar a exclusão
+        db.session.commit()
+    except Exception as e:
+        # informar mensagem de erro
+        resposta = jsonify({"resultado":"erro", "detalhes":str(e)})
+        # adicionar cabeçalho de liberação de origem
+        resposta.headers.add("Access-Control-Allow-Origin", "*")
+        return resposta # responder!
+       
 
 
 """@app.route("/listar_livros")
 def listar_livros():
     lixta = []
-    todas = db.session.query(livros).all()  # recebe as informaçoes de livros
+    todas = db.session.query(delLivros).all()  # recebe as informaçoes de livros
     for p in todas:
         lixta.append(p.json())
     resposta = jsonify(lixta)  # transforma a lixta em json
