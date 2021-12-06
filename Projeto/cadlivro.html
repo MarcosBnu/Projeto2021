@@ -43,14 +43,14 @@
       <div class="col-12">
         <br>
         <h1 style="text-align: center;">CADASTRE UM NOVO LIVRO</h1><br>
-        <form onsubmit="return false;">
+        <form onsubmit="return false;" enctype="multipart/form-data" id="meuform">
+          <div class="form-group">
+            <label>Capa do Livro</label>  
+            <input class="form-control" type="file" name="capa" id="campoCapa_do_Livro">
+          </div>
           <div class="form-group">
             <label>ISBN</label>
             <input class="form-control" type="number" name="isbn" id="campoISBN" placeholder="Digite o ISBN do livro" >
-          </div>
-          <div class="form-group">
-            <label>Capa do Livro</label>
-            <input class="form-control" type="file" name="capa" id="campoCapa_do_Livro">
           </div>
           <div class="form-group">
             <label>Nome do Livro</label>

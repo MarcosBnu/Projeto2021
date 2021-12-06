@@ -1,6 +1,23 @@
 $(function () { // quando o documento estiver pronto/carregado
     // código para mapear click do botão incluir pessoa
     $(document).on("click", "#btIncluirLivros", function () {
+        var form_data = new FormData($('#meuform')[0]);
+
+        $.ajax({
+            url: 'http://localhost:5000/salvar_imagem',
+            type: 'POST',
+            data: form_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(data) {
+                console.log('Success!');
+                alert("enviou a foto direitinho!");
+            },
+            error: function(data) {
+                alert("deu ruim na foto");
+            }
+        });
         //pegar dados da tela
         ISBN = $("#campoISBN").val();
         Capa_do_livro = $("#campoCapa_do_Livro").val();
@@ -21,15 +38,6 @@ $(function () { // quando o documento estiver pronto/carregado
             success: incluir_livro, // chama a função listar para processar o resultado
             error: erroAoIncluir
         });
-//        $.ajax({
-//            url: 'http://localhost:5000/salvar_imagem',
-//           type: 'POST',
-//            dataType: 'json', // os dados são recebidos no formato json
-//            contentType: 'application/json', // tipo dos dados enviados
-//            data: dados, // estes são os dados enviados
-//           success: salvar_imagem, // chama a função listar para processar o resultado
-//           error: erroAoIncluir
-//        });
         function incluir_livro (retorno) {
             if (retorno.resultado == "ok") { // a operação deu certo?
                 // informar resultado de sucesso

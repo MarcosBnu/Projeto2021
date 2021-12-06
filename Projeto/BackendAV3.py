@@ -77,8 +77,15 @@ def listar_livros():
 
 @app.route("/salvar_imagem", methods=['POST'])
 def salvar_imagem():
-    up=request.get_json()
-
+    r = jsonify({"mensagem":"tentando..."})
+    if request.method == 'POST':
+        file_val = request.files['capa']
+        print("vou salvar em: "+file_val.filename)
+        arquivoimg = os.path.join(path, 'Imagens/'+file_val.filename)
+        file_val.save(arquivoimg)
+        r = jsonify({"mensagem":"ok"})
+    r.headers.add("Access-Control-Allow-Origin", "*")
+    return r
 
 @app.route("/deletar_livro/<int:delNomeLivro>", methods=['DELETE'])
 def deletar_livro(delNomeLivro):
@@ -93,8 +100,8 @@ def deletar_livro(delNomeLivro):
         # informar mensagem de erro
         resposta = jsonify({"resultado":"erro", "detalhes":str(e)})
         # adicionar cabeçalho de liberação de origem
-        resposta.headers.add("Access-Control-Allow-Origin", "*")
-        return resposta # responder!
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta # responder!
        
 
 
@@ -129,4 +136,4 @@ def listar_editora():
     return resposta"""
 
 
-app.run(debug=True)
+app.run()
