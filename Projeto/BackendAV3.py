@@ -1,11 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, json, jsonify, request
+from flask import Flask, json, jsonify, request, send_file
 from werkzeug.wrappers import response
 from flask_cors import CORS
 from modeloL import *
 import os
 
-
+path = os.path.dirname(os.path.abspath(__file__))
 @app.route("/")
 def padrao():
     return "backend funciona"
@@ -83,10 +83,20 @@ def salvar_imagem():
         print("vou salvar em: "+file_val.filename)
         arquivoimg = os.path.join(path, 'Imagens/'+file_val.filename)
         file_val.save(arquivoimg)
-        r = jsonify({"mensagem":"ok"})
+        r = jsonify({"mensagem":"ok", "arquivo": file_val.filename})
     r.headers.add("Access-Control-Allow-Origin", "*")
     return r
-
+@app.route('/get_image/<int:id_livro>')
+def get_image(id_livro):
+    livro = db.session.query(Biblioteca).get(id_livro)
+    # if request.args.get('type') == '1':
+    #    filename = 'ok.gif'
+    # else:
+    #    filename = 'error.gif'
+    arquivoimg = os.path.join(path, 'Imagens/'+ livro.Capa_do_livro)
+    # arquivoimg = os.path.join('/home/ingguk/mysite/img_pet', livro.foto)
+    # /home/ingguk/mysite/img_pet
+    return send_file(arquivoimg, mimetype='image/gif')
 @app.route("/deletar_livro/<int:delNomeLivro>", methods=['DELETE'])
 def deletar_livro(delNomeLivro):
     #busca no banco de dados as informaçoes
@@ -136,4 +146,4 @@ def listar_editora():
     return resposta"""
 
 
-app.run()
+app.run(debug=True)

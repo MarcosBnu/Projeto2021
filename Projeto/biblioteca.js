@@ -15,7 +15,8 @@ $(function() { // quando o documento estiver pronto/carregado
         for (var i in livros) { //i vale a posição no vetor
           //lin='<div class="card cores10card col-3">'+
             lin='<div class="card cores10card col-3">'+
-            '<a id="nomelivro" href="#"><img class="card-img-top" src="Imagens/Capas/MulheresRacaEClasse.jpg" alt="Mulheres Raça E Classe" id="capalivro" class="img-fluid">'+
+            '<a id="nomelivro" href="#"><img class="card-img-top" src="http://localhost:5000/get_image/'+
+            livros[i].Idlivro+'" alt="Mulheres Raça E Classe" id="capalivro" class="img-fluid">'+
               '<div class="card-body">'+
                 '<h4 class="card-title">' + livros[i].Nome_do_livro +'</h4>'+
                 '<p class="card-text">'+ livros[i].Autor + '</p>'+

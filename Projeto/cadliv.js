@@ -6,12 +6,16 @@ $(function () { // quando o documento estiver pronto/carregado
         $.ajax({
             url: 'http://localhost:5000/salvar_imagem',
             type: 'POST',
+            //dataType: 'json',
             data: form_data,
             contentType: false,
             cache: false,
             processData: false,
             success: function(data) {
                 console.log('Success!');
+               // $("#nomearquivo").text(data.arquivo);
+                //alert(data.arquivo);
+                //alert(data);
                 alert("enviou a foto direitinho!");
             },
             error: function(data) {
@@ -20,7 +24,9 @@ $(function () { // quando o documento estiver pronto/carregado
         });
         //pegar dados da tela
         ISBN = $("#campoISBN").val();
-        Capa_do_livro = $("#campoCapa_do_Livro").val();
+        // C:\\fakepath\\olho.jpg"
+        // só conta a contrabarra uma vez, inicia do zero
+        Capa_do_livro =$("#campoCapa_do_Livro").val().substr(12); 
         Nome_do_livro = $("#campoNome_do_livro").val();
         Autor = $("#campoAutor").val();
         Paginas = $("#campoPaginas").val();
