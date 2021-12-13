@@ -121,7 +121,7 @@ $(function () { // quando o documento estiver pronto/carregado
         // fazer requisição para o back-end
         $.ajax({
             url: 'http://localhost:5000/login_usuario',
-            type: 'DELETE',
+            type: 'POST',
             dataType: 'json', // os dados são recebidos no formato json
             contentType: 'application/json', // tipo dos dados enviados
             data: Cadados, // estes são os dados enviados
