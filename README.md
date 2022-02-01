@@ -30,11 +30,11 @@ Para isso desenvolvi um sistema com front-end em html e javascript, e um back-en
       <td>✔️</td>
   </tr>
   <tr>
-      <td>deletar livro</td>
+      <td>Deletar livro</td>
       <td>✔️</td>
   </tr>
   <tr>
-      <td>cadastro de imagem para a capa do livro, a imagem é salva no banco de dados</td>
+      <td>Cadastro de imagem para a capa do livro, a imagem é salva no banco de dados</td>
       <td>✔️</td>
   </tr>
 </table>
